@@ -1,6 +1,25 @@
 #include <iostream>
 using namespace std;
 
+//insertion sort using for loop 
+void insertionsort1(int arr[], int size){
+    for(int i = 1 ; i<size ; i++){
+        int temp = arr[i];
+    
+        int j= i-1;
+        for( ; j>=0 ; j--){
+            if(arr[j]>temp){
+                arr[j+1]= arr[j];
+            }
+            else{
+                break;
+            }
+
+        }
+        arr[j+1]=temp;
+    }
+}
+
 
 
 // bubble sorting 
@@ -140,7 +159,8 @@ int binarysearchforaes(int arr[] , int size, int key) {
 int main(){
     int arr[6] = { 9,3,5,2,1,0};
     int arr2[5]= {30,13,12,11,10 };
-        
+
+    
     
     
     
