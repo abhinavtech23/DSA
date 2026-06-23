@@ -1,0 +1,91 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+// brut force gives TLE
+
+vector<vector<int>> threeSum(vector<int>& nums) {
+       vector<vector<int>> results;
+        int n = nums.size();
+        for (int i=0 ; i<n-2 ; i++){
+            for (int j=1+i; j<n-1 ; j++ ){
+                for (int k = j+1 ; k<n ;k++){
+                    
+                    if(i!=j && i!=k && j!=k){
+                        if (nums[i]  + nums[j] + nums[k]==0){
+                           vector<int> triplet = {nums[i], nums[j], nums[k]};
+                           sort(triplet.begin(), triplet.end());
+
+                            if (find(results.begin(), results.end(), triplet) == results.end()) {
+                                results.push_back(triplet);
+                            }
+
+                        
+
+                        }
+                       
+                        
+                        
+                    
+                    }
+                }
+        
+        
+
+           
+            }
+       
+
+        
+        }
+        return results;
+
+
+}
+
+// sorting and two pointer approach 
+
+vector<vector<int>> threeSum2(vector<int>& nums) {
+        vector<vector<int>> results;
+        int n = nums.size();
+        
+        sort(nums.begin(), nums.end());  //  sort kar diya
+        
+        for (int i = 0; i < n - 2; i++) {
+            
+            // duplicate 'i' skip kar diya
+            if (i > 0 && nums[i] == nums[i-1]) continue;
+            
+            int j = i + 1;
+            int k = n - 1;
+            
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                
+                if (sum == 0) {
+                    results.push_back({nums[i], nums[j], nums[k]});
+                    
+                    j++;
+                    k--;
+                    
+                    // duplicate 'j' skip maara
+                    while (j < k && nums[j] == nums[j-1]) j++;
+                    // duplicate 'k' skip 
+                    while (j < k && nums[k] == nums[k+1]) k--;
+                    
+                } else if (sum < 0) {
+                    j++;   
+                } else {
+                    k--;   
+                }
+            }
+        }
+        
+        return results;
+
+int main(){
+    vector <int> nums={-1,0,1,2,-1,4};
+    
+
+
+}
