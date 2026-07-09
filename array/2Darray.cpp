@@ -1,5 +1,32 @@
 #include<iostream>
+#include <climits>  //INT_MIN AND INT_MAX KE LIYE
 using namespace std;
+
+
+
+//largest row sum 
+int largestrowsum(int arr[3][4], int row , int col){
+    int maxi = INT_MIN;
+    int rowindex = -1;
+    for (int i=0 ; i<row ; i++){
+        int sum =0;
+        for (int j=0; j<col ; j++){
+            sum +=arr[i][j];
+
+
+            //yaha se extra part h
+            if (sum>maxi){
+                maxi = sum;
+                rowindex = i;
+            }
+
+        }
+        
+        
+    }
+    cout << maxi <<endl;
+    return rowindex;
+}
 
 
 //row wise sum  ----
@@ -62,4 +89,8 @@ int main(){
    }
    cout <<"the sum of the elements row wise is  " << endl;
     printrowsum( arr , 3 ,4);
+
+
+    int ans = largestrowsum( arr , 3 , 4);
+    cout << "the largest sum and its index is "<< ans <<endl;
 }
