@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
+
 using namespace std;
 
 // brut force gives TLE
@@ -82,8 +82,8 @@ vector<vector<int>> threeSum2(vector<int>& nums) {
         }
         
         return results;
-
-int main(){
+}
+int main() {
     vector <int> nums={-1,0,1,2,-1,4};
     
 

@@ -10,6 +10,7 @@ int spiral(int arr[3][3], int row , int col){
     
     while (strrow<=endrow && strcol<=endcol){
         
+
     }
 }
 
